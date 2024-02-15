@@ -1,0 +1,29 @@
+﻿<Window x:Class="TESTs.View.NewQuestionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TESTs.View"
+        xmlns:vm="clr-namespace:TESTs.ViewModel"
+        mc:Ignorable="d"
+        Title="Добавление вопроса" Height="270" MaxHeight="300" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.DataContext>
+        <vm:TeacherViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <StackPanel>
+            <StackPanel>
+                <WrapPanel>
+                    <TextBlock Text="Вопрос" Margin="5"/>
+                    <TextBox MinWidth="200" Margin="5" Text="{Binding NewQuestionName}"/>
+                </WrapPanel>
+            </StackPanel>
+            <TextBlock Text="Варианты ответа" Margin="5"/>
+            <ListBox MinHeight="100" MaxHeight="150" Margin="5" ItemsSource="{Binding Answers}" DisplayMemberPath="Title" />
+            <Button Content="Добавить вариант ответа" Margin="5" Command="{Binding AddAnswer}"/>
+            <Button Content="Завершить создание вопроса" Margin="5" Command="{Binding QuestionComplete}"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿<Window x:Class="TESTs.View.Registry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TESTs.View"
+        xmlns:vm="clr-namespace:TESTs.ViewModel"
+        mc:Ignorable="d"
+        Title="Регистрация" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Height="160" Width="190">
+
+    <Window.DataContext>
+        <vm:AuthViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        
+        <TextBlock Text="ФИО" Grid.Column="0" Grid.Row="0" Margin="5"/>
+        <TextBlock Text="Логин" Grid.Column="0" Grid.Row="1" Margin="5"/>
+        <TextBlock Text="Пароль" Grid.Column="0" Grid.Row="2" Margin="5"/>
+
+        <TextBox Grid.Column="1" Grid.Row="0" MinWidth="100" Margin="5" Text="{Binding FIO}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" MinWidth="100" Margin="5" Text="{Binding Login}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" MinWidth="100" Margin="5" Text="{Binding Pass}"/>
+        <Button Content="OK" Margin="5" Grid.Row="3" Grid.ColumnSpan="2" Command="{Binding Registry}"/>
+    </Grid>
+</Window>
